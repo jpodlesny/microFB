@@ -1,0 +1,76 @@
+<% if(isAllowed) { %>
+
+
+<% if( typeof title != "undefined" ) {%>
+<div class="wallInfo">
+	<div><%= title %></div>
+	<div></div>
+</div>
+
+<div class="post">
+	<div class="addPost">
+		<textarea id="postMsg" placeholder="Jak się dzisiaj czujesz?"></textarea>
+		<div class="btn">
+			<a href="#" id="sendPostMsg">Dodaj post</a>
+		</div>
+	</div>
+	<div class="mainPostR">
+	</div>
+</div>
+<% } %>
+<% if(post.length>0) {%>
+	<% for(var i=0; i<post.length; i++) { %>
+	    <div class="posts" data-post-id="<%= post[i]._id %>">
+				<div class="deletePost">
+					<% if((post[i].author._id+'')==(user._id+'') || (post[i].owner._id+'')==(user._id+'')) { %>
+						<a href="#" class="btn-deletePost">X</a>
+					<% } %>
+				</div>
+	    	<h2>
+					<% if(!post[i].share) { %>
+						<% if((post[i].author._id+'')!=(post[i].owner._id+'')) { %>
+							<a href="/user/<%= post[i].author._id %>"><%= post[i].author.username %></a>
+							&#8594;
+						<% } %>
+						<a href="/user/<%= post[i].owner._id %>" class="sharePostUsername"><%= post[i].owner.username %></a>
+					<% } else { %>
+						<a href="/user/<%= post[i].owner._id %>" class="sharePostUsername"><%= post[i].owner.username %></a>
+						<p class="inHeader2">udostępnił(a) post użytkownika</p>
+						<a href="/user/<%= post[i].author._id %>"><%= post[i].author.username %></a>
+					<% } %>
+	    	</h2>
+
+
+	        <div class="insidePost">
+	        <span class="time"><%= moment(post[i].created).format('YYYY-MM-DD HH:mm') %></span>
+	        	<div class="postDescription">
+	            	<%= post[i].content %>
+	            </div>
+	        </div>
+	        <div class="likes">
+	        	<div>
+	        		<a href="#" class="btn-like">
+	        			<span class="textLike">
+	        			<% if(myLiked[i]) { %>
+	        				Lubisz
+	        			<% }else{ %>
+	        				Polub
+	        			<% } %>
+	        			</span>
+	        		</a>
+	        		<span class="numberOfLikes"><%= post[i].likes.length %></span>
+	        	</div>
+	        </div>
+	        <div class="sharePost">
+	        	<a href="#" class="btn-sharePost">UDOSTĘPNIJ</a>
+	        </div>
+	    </div>
+	<% } %>
+<% }else{ %>
+	<div class="post emptyWall">
+	-
+	</div>
+<% } %>
+
+
+<% } %>

@@ -1,0 +1,25 @@
+
+<p>Czat z
+  <% if(user.length != undefined) { %>
+    użytkownikami:
+    <% for (var j=0; j<user.length; j++) { %>
+     <%= user[j].username %>,
+    <% }
+   } else { %>
+     użytkownikiem:
+  <%= user.username %>
+  <% } %>
+</p>
+
+<ul id="messages">
+<% if(message.length>0) { %>
+  <% for(var i=0; i<message.length; i++) { %>
+    <li><p class="content"><b>
+      <%= message[i].author.username %>
+    </b>: <%= message[i].content %></p><p class="date"><%= moment(message[i].created).format('YYYY-MM-DD HH:mm') %></p></li>
+    <% } %>
+<% } %>
+</ul>
+<form action="">
+  <input id="msg" autocomplete="off" /><button id="sendChatMsg">Wyślij</button>
+</form>

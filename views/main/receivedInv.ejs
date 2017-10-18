@@ -1,0 +1,15 @@
+<h3>POTWIERDŹ ZAPROSZENIE</h3>
+<% if(toMe.length>0) { %>
+<ul>
+	<% for (var i=0; i<toMe.length; i++) { %>
+		<li>
+			<a href="/user/<%= toMe[i].userSend._id %>"><%= toMe[i].userSend.username  %></a>
+			<div class="btn" style="display: inline-block;">
+				<a href="#" class="acceptInvitation" data-user-id="<%= toMe[i].userSend._id %>">Akceptuj</a>
+			</div>
+		</li>
+	<% } %>
+</ul>
+<% } else { %>
+	<p>-</p>
+<% } %>

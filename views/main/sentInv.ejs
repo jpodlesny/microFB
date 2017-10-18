@@ -1,0 +1,15 @@
+<h3>WYSŁANO ZAPROSZENIE</h3>
+<% if(sentTo.length>0) { %>
+<ul>
+	<% for(var i=0; i<sentTo.length; i++) { %>
+		<li>
+			<a href="/user/<%= sentTo[i].userReceive._id %>"><%= sentTo[i].userReceive.username  %></a>
+			<div class="btn" style="display: inline-block;">
+				<a href="#" class="removeInvitation" data-user-id="<%= sentTo[i].userReceive._id %>">Anuluj</a>
+			</div>
+		</li>
+	<% } %>
+</ul>
+<% } else { %>
+	<p>-</p>
+<% } %>

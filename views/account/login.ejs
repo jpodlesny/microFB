@@ -1,0 +1,23 @@
+
+<% if(typeof error != "undefined") {%>
+<div class="errors">
+<%= error %>
+</div>
+<% } %>
+<h3>LOGOWANIE</h3>
+<div class="form">
+	<form action="/login" method="POST">
+		<div class="form-group">
+			<label for="username">Nazwa użytkownika</label>
+	  	<input type="text" name="username" id="username" placeholder="Login" autofocus="true">
+	  </div>
+	  <div class="form-group">
+			<label for="password">Hasło</label>
+	  	<input type="password" name="password" id="password" placeholder="Hasło">
+	  </div>
+	  <div class="btn">
+	  	<input type="submit" value="Zaloguj">
+			<a href="/register">Rejestracja</a>
+	  </div>
+	</form>
+</div>

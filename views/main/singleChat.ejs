@@ -1,0 +1,14 @@
+<h2>Wiadomości</h2>
+
+<% if (chatTo.length>0) { %>
+<ul>
+  <% for (var i=0; i<chatTo.length; i=i+3) { %>
+  <li>
+    <a href="/chat/<%= chatTo[i] %>" class="singleUser" data-user-id="<%= chatTo[i] %>" data-chat-id="<%= chatTo[i+2] %>"><%= chatTo[i+1]  %></a>
+    <a href="#" class="deleteSingleChat" data-chat-id="<%= chatTo[i+2] %>">✕</a>
+  </li>
+  <% } %>
+</ul>
+<% } else { %>
+	<p>-</p>
+<% } %>

@@ -1,0 +1,54 @@
+<h3>ZNAJOMI</h3>
+<% if (friends.length>0) { %>
+<ul>
+<% for (var i=0; i<friends.length; i++) { %>
+	<% if (userId == friends[i].userReceive._id) { %>
+		<li>
+			<p class="isOnline" data-user-id="<%= friends[i].userSend._id %>">
+			<% if (friends[i].userSend.online == true) { %>
+				⚫
+			<% } %>
+			</p>
+			<a href="/user/<%= friends[i].userSend._id %>"><%= friends[i].userSend.username  %></a>
+			<div class="btn">
+				<a href="#" class="deleteFriend" data-user-id="<%= friends[i].userSend._id %>">Usuń</a>
+				<a href="#" class="stopFollow" data-user-id="<%= friends[i].userSend._id %>">
+					<% if (friends[i].userReceiveFollow === 1) { %>
+						Przestań obserwować
+					<% } else { %>
+						Obserwuj
+					<% } %>
+				</a>
+				<a href="/chat/<%= friends[i].userSend._id %>" class="chatFriend">Czat</a>
+				<input type="checkbox" class="selectUser" data-user-id="<%= friends[i].userSend._id %>">
+			</div>
+		</li>
+	<% } else { %>
+		<li>
+			<p class="isOnline" data-user-id="<%= friends[i].userReceive._id %>">
+			<% if (friends[i].userReceive.online == true) { %>
+				⚫
+			<% } %>
+			</p>
+			<a href="/user/<%= friends[i].userReceive._id %>"><%= friends[i].userReceive.username %></a>
+			<div class="btn">
+				<a href="#" class="deleteFriend" data-user-id="<%= friends[i].userReceive._id %>">Usuń</a>
+				<a href="#" class="stopFollow" data-user-id="<%= friends[i].userReceive._id %>">
+					<% if (friends[i].userSendFollow === 1) { %>
+						Przestań obserwować
+					<% } else { %>
+						Obserwuj
+					<% } %>
+				</a>
+				<a href="/chat/<%= friends[i].userReceive._id %>" class="chatFriend">Czat</a>
+				<input type="checkbox" class="selectUser" data-user-id="<%= friends[i].userReceive._id %>">
+			</div>
+		</li>
+	<% } %>
+<% } %>
+</ul>
+<div class="info"></div>
+<input type="submit" class="btnStartGroupChat" value="Rozpocznij konwersację grupową">
+<% } else { %>
+	<p>-</p>
+<% } %>

@@ -1,0 +1,542 @@
+@bgColor: #EBEFED;
+@mainColor: #498165;
+
+html {
+	margin: auto;
+	height: 100%;
+
+	body {
+		margin: auto;
+		background-color: @bgColor;
+		display: flex;
+		flex-direction: column;
+
+		#header {
+			background-color: #498165;
+			padding: 4px;
+			display: flex;
+			justify-content: space-between;
+			.left {
+				margin: auto;
+				.logo {
+					color: #EBEFED;
+					font-family: "Arial";
+					font-weight: bold;
+					text-decoration: none;
+				}
+			}
+			.center {
+				margin: auto;
+				.search {
+					display: flex;
+					position: relative;
+					border: solid 1px black;
+					input {
+						outline-width: 0;
+					}
+					#searchFriendsList{
+						position: absolute;
+						top: 100%;
+						left: 0px;
+						right: 0px;
+						background-color: white;
+						text-align: center;
+
+						ul {
+							padding-left: 0;
+							li {
+								list-style-type: none;
+								padding: 4px;
+								a {
+									text-decoration: none;
+									color: black;
+								}
+							}
+							li:hover {
+								list-style-type: none;
+								background-color: darken(@bgColor, 5%);
+								font-weight: bold;
+							}
+						}
+					}
+				}
+			}
+			.right {
+				margin: auto;
+				a {
+					border-radius: 10px;
+					background-color: #EBEFED;
+					color: black;
+					font-weight: bold;
+					font-family: "Arial";
+					font-size: 14px;
+					text-decoration: none;
+					padding: 5px;
+				}
+			}
+		}
+
+		.main {
+
+			#getUserId {
+				padding: 10px;
+				.btn {
+						border: solid 1px black;
+						border-radius: 10px;
+						background-color: lighten(@mainColor, 50%);
+						padding: 15px;
+						margin: auto;
+						width: 15%;
+						text-align: center;
+					a {
+						margin: auto;
+						text-decoration: none;
+						color: black;
+					}
+				}
+			}
+
+			#whichUserThisWallIs {
+				.wallInfo {
+					text-align: center;
+					font-weight: bold;
+					font-size: 18px;
+					margin: auto;
+				}
+			}
+
+			.errors {
+				border: 1px solid lighten(#f00,30%);
+				border-radius: 7px;
+				background: lighten(#f00,40%);
+				margin: auto;
+				text-align: center;
+				width: 40%;
+				padding-top:5px;
+				padding-bottom: 5px;
+			}
+
+			h3 {
+				text-align: center;
+				font-family: "Arial";
+			}
+
+			.form {
+			  display: flex;
+			  justify-content: center;
+			  margin: auto;
+			  padding: 10px;
+			  width: 40%;
+			  box-shadow: 0px 12px 29px -12px rgba(0,0,0,0.75);
+			  background-color: #e3e8e6;
+
+			  .form-group {
+			    display: flex;
+			    flex-direction: column;
+			    margin: auto;
+			    padding: 10px;
+
+			    label {
+			      font-size: 14px;
+			      font-weight: bold;
+						font-family: "Arial";
+			      margin: auto;
+			      padding: 3px;
+			    }
+
+			    input {
+			      outline-color: #498165;
+			      margin: auto;
+			      padding: 7px;
+			    }
+			  }
+				.btn {
+					display: flex;
+					flex-direction: column;
+					justify-content: center;
+					margin: auto;
+
+					input {
+						width: 50%;
+						padding: 5px;
+						margin: auto;
+					}
+					a {
+						text-decoration: none;
+						text-align: center;
+						padding: 10px;
+						font-weight: bold;
+						font-size: 18px;
+						font-family: "Arial";
+						color: black;
+						margin: auto;
+					}
+				}
+			}
+
+			#friendsList {
+				display: flex;
+				justify-content: center;
+				flex-direction: row;
+				flex-wrap: wrap;
+				margin: auto;
+				height: 100%;
+
+				#receiveInvitation {
+					margin: 10px;
+					padding: 20px;
+					ul {
+						li {
+							list-style-type: none;
+							text-align: right;
+							a {
+								text-decoration: none;
+								color: black;
+							}
+							.btn {
+								margin-top: 10px;
+								.acceptInvitation {
+									border-radius: 5px;
+									background-color: gainsboro;
+									padding: 4px;
+									margin-left: 80px;
+								}
+							}
+						}
+					}
+				}
+
+				#sentInvitation {
+					margin: 10px;
+					padding: 20px;
+					ul {
+						padding-left: 0;
+						li {
+							list-style-type: none;
+							text-align: right;
+							a {
+								text-decoration: none;
+								color: black;
+							}
+							.btn {
+								margin-top: 10px;
+								.removeInvitation {
+									margin: auto;
+									border-radius: 5px;
+									background-color: gainsboro;
+									padding: 4px;
+									margin-left: 80px;
+								}
+							}
+						}
+					}
+				}
+
+				#friends {
+					margin: 10px;
+					padding: 20px;
+					.info {
+						display: flex;
+						justify-content: flex-end;
+						p {
+							color: red;
+							width: 70%;
+							text-align: center;
+						}
+					}
+					ul {
+						padding-left: 0;
+						li {
+							list-style-type: none;
+							text-align: right;
+							p {
+								color: green;
+								margin: auto;
+								display: inline-block;
+								padding-right: 5px;
+							}
+							a {
+								text-decoration: none;
+								color: black;
+							}
+							.btn {
+								margin-top: 10px;
+								display: inline-block;
+								.deleteFriend {
+									border-radius: 5px;
+									background-color: #FFCACA;
+									padding: 4px;
+									margin-left: 15px;
+									color: red;
+								}
+								.stopFollow {
+									border-radius: 5px;
+									background-color: lighten(@mainColor, 50%);
+									padding: 4px;
+									margin-right: 5px;
+									color: green;
+								}
+								.chatFriend {
+									border-radius: 5px;
+									background-color: #C9D4EB;
+									padding: 4px;
+									color: blue;
+								}
+							}
+						}
+					}
+					.btnStartGroupChat {
+						float: right;
+						margin-right: 23px;
+					}
+				}
+			}
+
+			#chatList {
+				display: flex;
+				justify-content: center;
+				flex-direction: row;
+				flex-wrap: wrap;
+				margin: auto;
+				height: 100%;
+
+				#singleChat {
+					margin: 10px;
+					padding: 20px;
+					ul {
+						padding-left: 0;
+						li {
+							list-style-type: none;
+							text-align: center;
+							margin-bottom: 8px;
+							a {
+								text-decoration: none;
+								color: black;
+							}
+							.deleteSingleChat {
+								color: red;
+								float: right;
+							}
+						}
+					}
+				}
+
+				#groupChat {
+					margin: 10px;
+					padding: 20px;
+					h2 {
+						text-align: center;
+					}
+					ul {
+						padding-left: 0;
+						li {
+							list-style-type: none;
+							text-align: center;
+							margin-bottom: 8px;
+							a {
+								text-decoration: none;
+								color: black;
+							}
+							.deleteGroupChat {
+								color: red;
+								float: right;
+							}
+						}
+					}
+				}
+
+				#everyoneChat {
+					display: flex;
+					flex-direction: column;
+					margin: 38px;
+					padding: 20px;
+					#everyoneMsg {
+						height: 100px;
+						margin: auto;
+						width: 100%;
+						border-radius: 6px;
+					}
+					.check {
+						margin-top: 5px;
+						font-size: 12px;
+						font-family: "Arial";
+					}
+					.everyoneMsgSend {
+						margin: auto;
+						margin-top: 10px;
+						width: 25%;
+					}
+				}
+
+			}
+
+			#chatToId {
+				background-color: white;
+				display: flex;
+				margin: auto;
+				justify-content: center;
+				flex-direction: column;
+				flex-wrap: wrap;
+				width: 60%;
+				p {
+					text-align: center;
+					margin: auto;
+					padding-top: 5px;
+					padding-bottom: 5px;
+				}
+				form {
+					border-top: 2px solid #498165;
+					padding: 2px;
+					width: 100%;
+					display: flex;
+					margin: auto;
+					flex-direction: row;
+					input {
+						border: 0;
+						padding: 10px;
+						margin: auto;
+						width: 89%;
+						outline-width: 0;
+					}
+					button {
+						background: #bdd9cb;
+						border: none;
+						padding: 10px;
+						margin: auto;
+					}
+				}
+				#messages {
+					list-style-type: none;
+					margin: 0;
+					padding: 0;
+					overflow-y: scroll;
+					height: 500px;
+					li {
+						padding: 5px 10px;
+					}
+					li:nth-child(odd) {
+						background: #eee;
+					}
+					.content {
+						text-align: left;
+						padding: 0;
+					}
+					.date {
+						text-align: right;
+						font-style: italic;
+						font-size: 10px;
+						color: #666666;
+						padding: 0;
+					}
+				}
+			}
+
+			.post {
+				padding: 25px;
+				width: 40%;
+				margin: auto;
+				.addPost {
+					display: flex;
+					flex-direction: column;
+					justify-content: center;
+					margin: auto;
+					padding: 10px;
+					#postMsg {
+						height: 100px;
+						margin-bottom: 10px;
+					}
+					.btn {
+						margin: auto;
+						padding: 10px;
+						border: solid 1px black;
+						border-radius: 5px;
+						background-color: lighten(@mainColor, 50%);
+						a {
+							text-decoration: none;
+							color: black;
+							margin: auto;
+						}
+					}
+				}
+			}
+
+			.posts {
+				display: flex;
+				flex-direction: column;
+				border: solid 1px black;
+				border-radius: 10px;
+				background-color: lighten(@mainColor, 30%);
+				width: 40%;
+				margin: auto;
+				margin-bottom: 10px;
+				.deletePost {
+					text-align: right;
+					a {
+						background-color: red;
+						border-top-right-radius: 10px;
+						text-decoration: none;
+						opacity: 0.2;
+					}
+					a:hover {
+						background-color: red;
+						border-top-right-radius: 10px;
+						opacity: 1;
+						margin: auto;
+						color: black;
+						text-decoration: none;
+						padding-right: 10px;
+						padding-left: 10px;
+					}
+				}
+				h2 {
+					text-align: center;
+					display: flex;
+					flex-direction: row;
+					p {
+						font-size: 15px;
+						margin: auto;
+					}
+					a {
+						text-decoration: none;
+						color: black;
+						margin: auto;
+					}
+
+				}
+				.insidePost {
+					display: flex;
+					flex-direction: column;
+					margin: auto;
+					background-color: lighten(@mainColor, 50%);
+					width: 100%;
+					.time {
+						font-size: 10px;
+						font-family: "Arial";
+						text-align: right;
+						padding: 5px;
+					}
+					.postDescription {
+						padding: 15px;
+						margin: auto;
+					}
+				}
+				.likes {
+					padding: 5px;
+					a {
+						text-decoration: none;
+					}
+				}
+				.sharePost {
+					text-align: right;
+					padding: 5px;
+					a {
+						margin: auto;
+						text-decoration: none;
+						padding: 5px;
+						color: darken(@mainColor, 30%);
+					}
+				}
+			}
+		}
+	}
+}

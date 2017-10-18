@@ -1,0 +1,24 @@
+<h2>Wiadomości grupowe</h2>
+
+<% if (chatTo.length>0) { %>
+<ul>
+  <% for (var i=0; i<chatTo.length; i++) { %>
+  <li>
+    <% var arrIds = [], arrUsernames = []; %>
+    <% for (var j=0; j<chatTo[i].length; j++) { %>
+      <% if (j%2 == 0) {%>
+        <% arrIds.push(chatTo[i][j]); %>
+      <% } else { %>
+        <% arrUsernames.push(chatTo[i][j]); %>
+      <% } %>
+    <% } %>
+    <a href="/chat/<%= arrIds %>" class="groupUser" data-chat-id="<%= chatId[i]._id %>">
+      <%= arrUsernames  %>
+    </a>
+    <a href="#" class="deleteGroupChat" data-chat-id="<%= chatId[i]._id %>">✕</a>
+  </li>
+  <% } %>
+</ul>
+<% } else { %>
+	<p>-</p>
+<% } %>

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+      <meta charset="UTF-8">
+      <title>microFB</title>
+      <link rel='stylesheet' type="text/css" href='/css/style.css' />
+      <script src='/javascripts/jquery.min.js'></script>
+      <script src='/socket.io/socket.io.js'></script>
+      <% if( typeof isAuthenticated != "undefined" & typeof user != "undefined" ) {%>
+      <script src='/javascripts/socketSearchBar.js'></script>
+      <script src='/javascripts/socketFriendRequest.js'></script>
+      <% } %>
+      <% if( typeof includeJs != "undefined" ) {%>
+  	    <% for(var i=0; i<includeJs.length; i++) { %>
+  	    <script src='/javascripts/<%= includeJs[i] %>.js'></script>
+  	    <% } %>
+      <% } %>
+  </head>
+
+  <body>
+  	<div id="header">
+  		<div class="left">
+  			<a href="/" class="logo">microFB</a>
+  		</div>
+  		<div class="center">
+  		<% if( typeof isAuthenticated != "undefined" & typeof user2 != "undefined" ) {%>
+  			<div class="search">
+  				<input type="text" name="searchFriends" id="searchFriends" placeholder="🔍 Szukaj...">
+  				<div id="searchFriendsList"></div>
+  			</div>
+  		<% } %>
+  		</div>
+  		<div class="right">
+  		<% if (typeof isAuthenticated != "undefined" & typeof user2 != "undefined") { %>
+
+  				<% if (typeof user2.username != "undefined") { %> <%= user2.username %> <% } %>
+
+        <a href="/" id="postNotification" class="rigth-link">📖&nbsp;Tablica</a>
+        <a href="/friendRequests" id="friendNotification" class="rigth-link">👨&nbsp;Znajomi</a>
+        <a href="/chats" id="messageNotification" class="rigth-link">💬&nbsp;Wiadomości</a>
+  			<a href="/logout" class="rigth-link">❌&nbsp;Wyloguj</a>
+  		<% } else { %>
+  			<a href="/login" class="rigth-link">⇐&nbsp;Zaloguj się</a>
+  		<% } %>
+  		</div>
+  	</div>
+
+  	<div class="main">
+  		<%- body %>
+    </div>
+
+  </body>
+</html>

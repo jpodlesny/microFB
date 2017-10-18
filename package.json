@@ -1,0 +1,32 @@
+{
+  "name": "microFB",
+  "version": "0.1.0",
+  "description": "microFB application",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app"
+  },
+  "author": "Julian Podleśny",
+  "dependencies": {
+    "socket.io": "^2.0.3",
+    "connect":"^1.9.2",
+    "bcryptjs": "^2.4.0",
+    "body-parser": "^1.17.1",
+    "cookie-parser": "^1.4.3",
+    "ejs": "^2.5.6",
+    "express": "^4.15.2",
+    "express-session": "^1.15.2",
+    "express-validator": "^2.3.0",
+    "express-ejs-layouts":"^1.1.0",
+	  "less-middleware": "*",
+    "mongoose": "^4.9.5",
+    "mongoose-relationship": "^0.1.5",
+    "passport": "^0.3.2",
+    "passport-http": "^0.3.0",
+    "passport-local": "^1.0.0",
+    "util": "^0.10.3",
+    "jQuery": "^1.0.0",
+    "crypto": "^0.0.3",
+    "moment": "^2.18.1"
+  }
+}
